@@ -6,12 +6,12 @@ const DetalleContacto = ({ contacto, onActualizar, onEliminar }) => {
     // Destructuración
     const { id_contacto, nombre, apellido, dato_contacto } = contacto;
     
-    // Estados para editar datos básicos
+    // Estados para editar
     const [editandoBasicos, setEditandoBasicos] = useState(false);
     const [editNombre, setEditNombre] = useState(nombre);
     const [editApellido, setEditApellido] = useState(apellido);
     
-    // Estados para saber qué sub-dato se edita y guardar
+    // que es lo que se esta editando
     const [idDatoEditando, setIdDatoEditando] = useState(null);
     const [editDatoCampos, setEditDatoCampos] = useState({
         tipo: "Personal",
@@ -20,7 +20,7 @@ const DetalleContacto = ({ contacto, onActualizar, onEliminar }) => {
         direccion: ""
     });
     
-    // Estado para controlar el formulario de nuevos datos
+    
     const [nuevoDatos, setNuevoDato] = useState({
         tipo: 'Personal',
         correo: '',
@@ -72,7 +72,7 @@ const DetalleContacto = ({ contacto, onActualizar, onEliminar }) => {
         }
     };
 
-    // Función activar edición de sub-dato
+    // Editar datos 
     const activarEdicionDato = (d) => {
         setIdDatoEditando(d.id_dato_contacto);
         setEditDatoCampos({
@@ -89,13 +89,13 @@ const DetalleContacto = ({ contacto, onActualizar, onEliminar }) => {
         const corr = editDatoCampos.correo ? editDatoCampos.correo.trim() : "";
         const dir = editDatoCampos.direccion ? editDatoCampos.direccion.trim() : "";
     
-        // Validar que al menos uno de los campos tenga información
+        // Validar que al menos uno tenga informacion
         if (!tel && !corr && !dir) {
             setErrorInput("Debe rellenar al menos un campo para actualizar la información.");
             return;
         }
         
-        // Validando el teléfono en edición
+        // Validando el teléfono en Editar
         if (tel !== "") {
             if (!tel.startsWith("+569") || tel.length !== 12) {
                 setErrorInput("El teléfono debe comenzar con +569 y tener 12 caracteres en total (Ej: +56912345678).");
@@ -398,7 +398,7 @@ const DetalleContacto = ({ contacto, onActualizar, onEliminar }) => {
                 )}
             </div>
 
-            {/* Formulario para añadir nuevos datos */}
+            
             <form onSubmit={agregarDetalle} className="bg-white p-4 rounded border shadow-sm d-flex flex-column gap-3">
                 <h5 className="m-0 h6 text-dark fw-bold">Añadir Información Adicional</h5>
                 <div className="form-group">

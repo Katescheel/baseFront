@@ -14,7 +14,7 @@ const FormularioContacto = ({onAgregar}) =>{
         const tel = telefono.trim();
         const corr= correo.trim();
 
-        //valindado los campos requeridos
+        //campos obligatorios
         if(!nom || !ape || !tel || !corr){
             setErrorForm("Los campos Nombre,Apellido,Telefono y correo son obligatorios");
             return;
@@ -27,7 +27,7 @@ const FormularioContacto = ({onAgregar}) =>{
         //validando que solo sean letras y espacios
         for (let i = 0; i < nom.length; i++) {
             const caracter = nom[i];
-        // Si no es un espacio y además al pasarlo a mayúscula queda igual que en minúscula,
+        
             if (caracter !== " " && caracter.toLowerCase() === caracter.toUpperCase()) {
                 setErrorForm("El Nombre debe contener letras.");
                 return;
@@ -63,7 +63,7 @@ const FormularioContacto = ({onAgregar}) =>{
             setErrorForm("El correo electrónico debe incluir un '@'.");
             return;
         }
-    // Validando terminacion en '.com' o '.cl'
+    // terminacion en '.com' o '.cl'
         if (!corr.endsWith(".com") && !corr.endsWith(".cl")) {
             setErrorForm("El correo electrónico debe terminar en .cl o .com.");
             return;

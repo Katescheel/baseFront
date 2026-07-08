@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 const ListaContactos = ({ contactos, onSeleccionar, onEliminar }) => {
-  // Estado para rastrear el contacto que se quiere eliminar
+  // contacto que se quiere eliminar
   const [idContactoAEliminar, setIdContactoAEliminar] = useState(null);
 
   return (
@@ -33,7 +33,7 @@ const ListaContactos = ({ contactos, onSeleccionar, onEliminar }) => {
 
               
               {idContactoAEliminar === contacto.id_contacto ? (
-                // Nueva Alerta integrada 
+                //  Alerta integrada 
                 <div 
                   className="alert alert-danger m-0 py-1 px-2 d-flex align-items-center gap-2 animate__animated animate__fadeIn"
                   style={{ fontSize: '0.85rem' }}
@@ -57,7 +57,7 @@ const ListaContactos = ({ contactos, onSeleccionar, onEliminar }) => {
                       style={{ fontSize: '0.8rem' }}
                       onClick={(e) => {
                         e.stopPropagation();
-                        setIdContactoAEliminar(null); // Cancela la acción
+                        setIdContactoAEliminar(null);
                       }}
                     >
                       No
@@ -65,11 +65,11 @@ const ListaContactos = ({ contactos, onSeleccionar, onEliminar }) => {
                   </div>
                 </div>
               ) : (
-                // Botón inicial de eliminar
+                
                 <button
                   onClick={(e) => {
-                    e.stopPropagation(); // Evita que se abra el detalle
-                    setIdContactoAEliminar(contacto.id_contacto); // Activa la confirmación para este ID
+                    e.stopPropagation(); 
+                    setIdContactoAEliminar(contacto.id_contacto); 
                   }}
                   className="btn btn-outline-danger btn-sm fw-semibold px-2"
                   title="Eliminar contacto"
