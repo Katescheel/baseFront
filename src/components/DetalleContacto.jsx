@@ -46,16 +46,16 @@ const DetalleContacto = ({ contacto, onActualizar, onEliminar }) => {
             return;
         }
         try {
-            const url = `https://uammecbzbbcvpaetvviv.supabase.co/rest/v1/contacto?id_contacto=eq.${id_contacto}`;
+            const url = `${import.meta.env.VITE_SUPABASE_URL}/rest/v1/dato_contacto?id_dato_contacto=eq.${idDato}`;
             const response = await fetch(url, {
                 method: 'PATCH',
                 headers: {
-                    'apikey': 'sb_publishable_lz0WFQa6-U3oGAfkKZI6rQ_6PN_dvw3',
-                    'Authorization': 'Bearer sb_publishable_lz0WFQa6-U3oGAfkKZI6rQ_6PN_dvw3',
+                    'apikey': 'import.meta.env.VITE_SUPABASE_ANON_KEY',
+                    'Authorization': 'Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY}',
                     'Content-Type': 'application/json',
                     'Prefer': 'return=minimal',
                     'Cache-Control': 'no-cache',
-                    'Pragma': 'no-cache',
+                    'Pragma': 'no-cache'
                 },
                 body: JSON.stringify({
                     nombre: editNombre.trim(),
@@ -118,12 +118,12 @@ const DetalleContacto = ({ contacto, onActualizar, onEliminar }) => {
     }
 
         try {
-            const url = `https://uammecbzbbcvpaetvviv.supabase.co/rest/v1/dato_contacto?id_dato_contacto=eq.${idDato}`;
+            const url = `${import.meta.env.VITE_SUPABASE_URL}/rest/v1/dato_contacto?id_dato_contacto=eq.${idDato}`;
             const response = await fetch(url, {
                 method: 'PATCH',
                 headers: {
-                    'apikey': 'sb_publishable_lz0WFQa6-U3oGAfkKZI6rQ_6PN_dvw3',
-                    'Authorization': 'Bearer sb_publishable_lz0WFQa6-U3oGAfkKZI6rQ_6PN_dvw3',
+                    'apikey': 'import.meta.env.VITE_SUPABASE_ANON_KEY',
+                    'Authorization': 'Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY}',
                     'Content-Type': 'application/json',
                     'Prefer': 'return=minimal',
                     'Cache-Control': 'no-cache',
